@@ -1,0 +1,67 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线播放</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://gitee.com/zxc72/chicken-youre-too-beautiful/raw/master/6159252dd42a28342b65219649b5c9ea14cebf6f.png'); /* 替换为你的背景图地址 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .video-container {
+    max-width: 90%;
+    max-height: 60vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .video-player {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="video-container">
+  <video id="videoPlayer" class="video-player" controls>
+    <!-- 预装播放地址，你可以替换为你的默认视频地址 -->
+    <source src="https://gitee.com/zxc72/chicken-youre-too-beautiful/raw/master/add2d51b76a8449db5616dc1ab310e1f3wcn530746.mp4" type="video.mp4">
+    你的浏览器不支持视频播放。
+  </video>
+  <div>
+    <label for="videoUrl">请粘贴播放地址:</label>
+    <input type="text" id="videoUrl" placeholder="例如: http://example.com/video.mp4">
+    <button onclick="loadVideo()">播放</button>
+  </div>
+</div>
+
+<script>
+// 预加载默认视频
+window.onload = function() {
+  document.getElementById('videoPlayer').play();
+};
+
+function loadVideo() {
+  var videoUrl = document.getElementById('videoUrl').value;
+  var videoPlayer = document.getElementById('videoPlayer');
+  videoPlayer.src = videoUrl;
+  videoPlayer.play();
+}
+</script>
+
+</body>
+</html>
+ 
